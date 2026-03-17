@@ -162,11 +162,10 @@ export default function Services() {
   const titleInView = useInView(titleRef, { once: true, margin: "-60px" });
 
   return (
-    <section id="servicios" className="relative py-16 md:py-24 px-6 md:px-10">
+    <section id="servicios" className="relative">
       {/* Ambient glow */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[300px] h-[400px] rounded-full bg-violet-700/6 blur-[100px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto">
         {/* Section header */}
         <motion.div
           ref={titleRef}
@@ -193,47 +192,32 @@ export default function Services() {
               escalar sin límites
             </span>
           </h2>
-          <p className="text-zinc-400 text-lg max-w-xl mx-auto leading-relaxed">
+          <p className="text-zinc-400 text-lg max-w-xl mx-auto leading-relaxed text-center">
             Tres servicios core, construidos sobre las mejores herramientas del mercado.
           </p>
         </motion.div>
 
         {/* ── Asymmetric Bento Grid ── */}
-        {/*
-          Desktop layout (md+):
-          ┌────────────────────┬───────────────┐
-          │   Web Development  │               │
-          │   (col 1-2, row 1) │  n8n Automat. │
-          ├────────────────────│  (col 3, rows │
-          │  Python Scripts    │   1-2)        │
-          │  (col 1-2, row 2)  │               │
-          └────────────────────┴───────────────┘
-        */}
-        <div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          style={{
-            gridTemplateRows: "minmax(340px, auto) minmax(340px, auto)",
-          }}
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Web Development — wide, top-left */}
           <BentoCard
             card={cards[0]}
             delay={0.1}
-            className="md:[grid-column:1/3] md:[grid-row:1/2]"
+            className="lg:col-span-2"
           />
 
           {/* n8n Automations — tall, right column */}
           <BentoCard
             card={cards[1]}
             delay={0.2}
-            className="md:[grid-column:3/4] md:[grid-row:1/3]"
+            className="lg:col-span-1"
           />
 
           {/* Python Scripts — wide, bottom-left */}
           <BentoCard
             card={cards[2]}
             delay={0.3}
-            className="md:[grid-column:1/3] md:[grid-row:2/3]"
+            className="lg:col-span-3"
           />
         </div>
       </div>

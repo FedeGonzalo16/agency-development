@@ -9,10 +9,10 @@ export default function CTA() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section className="relative py-16 md:py-24 px-6 md:px-10">
+    <section className="relative">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/20 to-transparent" />
 
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto px-4">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, scale: 0.97 }}
@@ -43,7 +43,7 @@ export default function CTA() {
                 tu empresa?
               </span>
             </h2>
-            <p className="text-zinc-400 text-lg max-w-lg mx-auto mb-10 leading-relaxed">
+            <p className="text-zinc-400 text-lg max-w-lg mx-auto mb-10 leading-relaxed text-center">
               Agenda una consulta gratuita de 30 minutos. Te mostraremos exactamente
               qué procesos puedes automatizar y cuánto tiempo y dinero ahorrarás.
             </p>
@@ -64,7 +64,7 @@ export default function CTA() {
               </a>
             </div>
 
-            <p className="text-zinc-600 text-sm mt-6">
+            <p className="text-zinc-600 text-sm mt-8">
               Sin compromiso · 100% gratuito · Respuesta en menos de 24h
             </p>
           </div>

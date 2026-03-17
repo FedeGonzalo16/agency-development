@@ -34,7 +34,7 @@ const WA_NUMBER = "TU_NUMERO"; // ← reemplaza con tu número (ej: 549111234567
 /* ─── Input field wrapper ────────────────────────────────────────────────── */
 function Field({ label, required, children }) {
   return (
-    <div className="flex flex-col gap-1.5">
+    <div className="flex flex-col gap-3">
       <label className="text-sm font-medium text-zinc-300">
         {label}
         {required && <span className="text-violet-400 ml-0.5">*</span>}
@@ -118,14 +118,13 @@ export default function Contact() {
   };
 
   return (
-    <section id="contacto" className="relative py-16 md:py-24 px-6 md:px-10">
+    <section id="contacto" className="relative">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/20 to-transparent" />
 
       {/* Ambient glow */}
       <div className="absolute bottom-0 right-1/4 w-[350px] h-[350px] rounded-full bg-violet-700/7 blur-[100px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-14 items-center">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-14 items-center">
 
           {/* ── Left: copy ── */}
           <motion.div
@@ -133,6 +132,7 @@ export default function Contact() {
             variants={containerVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
+            className="max-w-xl mx-auto text-center xl:text-left"
           >
             <motion.span
               variants={itemVariants}
@@ -161,7 +161,7 @@ export default function Contact() {
 
             <motion.p
               variants={itemVariants}
-              className="text-zinc-400 text-lg leading-[1.8] mb-12 max-w-md"
+              className="text-zinc-400 text-lg leading-[1.8] mb-12 max-w-lg mx-auto xl:mx-0"
             >
               Cuéntanos qué necesitas. Te respondemos en menos de 24 h con un
               diagnóstico gratuito y un plan de acción personalizado.
@@ -174,7 +174,10 @@ export default function Contact() {
                 "Presupuesto detallado en 48 h",
                 "Soporte en español, sin tecnicismos",
               ].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm text-zinc-400">
+                <li
+                  key={item}
+                  className="flex items-center justify-center xl:justify-start gap-3 text-sm text-zinc-400"
+                >
                   <CheckCircle2
                     size={15}
                     className="text-violet-400 shrink-0"
@@ -191,7 +194,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 32 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.25, ease: "easeOut" }}
-            className="relative rounded-2xl border border-white/[0.07] bg-[#0d0d10] p-10 overflow-hidden"
+            className="relative rounded-2xl border border-white/[0.07] bg-[#0d0d10] p-10 md:p-14 overflow-hidden"
           >
             {/* Corner glow */}
             <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-violet-600/12 blur-[60px] pointer-events-none" />
@@ -205,7 +208,7 @@ export default function Contact() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.4 }}
-                  className="flex flex-col items-center justify-center py-16 text-center gap-4"
+                  className="flex flex-col items-center justify-center py-10 text-center gap-4"
                 >
                   <div className="w-16 h-16 rounded-full bg-violet-500/15 border border-violet-500/30 flex items-center justify-center">
                     <CheckCircle2
@@ -214,8 +217,8 @@ export default function Contact() {
                       style={{ filter: "drop-shadow(0 0 8px rgba(139,92,246,0.8))" }}
                     />
                   </div>
-                  <h3 className="text-white font-bold text-xl">¡Mensaje recibido!</h3>
-                  <p className="text-zinc-400 text-sm max-w-xs">
+                  <h3 className="text-white font-bold text-2xl">¡Mensaje recibido!</h3>
+                  <p className="text-zinc-400 text-base max-w-xs">
                     Te contactaremos en menos de 24 h. También puedes escribirnos por
                     WhatsApp si lo prefieres.
                   </p>
@@ -224,7 +227,7 @@ export default function Contact() {
                       setStatus("idle");
                       setForm({ name: "", email: "", service: "" });
                     }}
-                    className="mt-2 text-sm text-violet-400 hover:text-violet-300 transition-colors underline underline-offset-2"
+                    className="mt-4 text-sm text-violet-400 hover:text-violet-300 transition-colors underline underline-offset-2"
                   >
                     Enviar otro mensaje
                   </button>
@@ -252,7 +255,7 @@ export default function Contact() {
                       className={inputCls(!!errors.name)}
                     />
                     {errors.name && (
-                      <p className="flex items-center gap-1 text-xs text-red-400 mt-0.5">
+                      <p className="flex items-center gap-1 text-xs text-red-400 mt-1">
                         <AlertCircle size={12} /> {errors.name}
                       </p>
                     )}
@@ -270,7 +273,7 @@ export default function Contact() {
                       className={inputCls(!!errors.email)}
                     />
                     {errors.email && (
-                      <p className="flex items-center gap-1 text-xs text-red-400 mt-0.5">
+                      <p className="flex items-center gap-1 text-xs text-red-400 mt-1">
                         <AlertCircle size={12} /> {errors.email}
                       </p>
                     )}
@@ -301,14 +304,14 @@ export default function Contact() {
                         ))}
                       </select>
                       {/* Custom caret */}
-                      <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500">
+                      <div className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-zinc-500">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <polyline points="6 9 12 15 18 9" />
                         </svg>
                       </div>
                     </div>
                     {errors.service && (
-                      <p className="flex items-center gap-1 text-xs text-red-400 mt-0.5">
+                      <p className="flex items-center gap-1 text-xs text-red-400 mt-1">
                         <AlertCircle size={12} /> {errors.service}
                       </p>
                     )}
@@ -319,7 +322,7 @@ export default function Contact() {
                     type="submit"
                     disabled={status === "loading"}
                     className={cn(
-                      "w-full flex items-center justify-center gap-2 py-3.5 rounded-xl text-sm font-semibold text-white transition-all duration-200",
+                      "w-full flex items-center justify-center gap-2 py-3.5 rounded-xl text-base font-semibold text-white transition-all duration-200 mt-2",
                       status === "loading"
                         ? "bg-violet-700/60 cursor-not-allowed"
                         : "bg-violet-600 hover:bg-violet-500 shadow-[0_0_20px_rgba(139,92,246,0.35)] hover:shadow-[0_0_32px_rgba(139,92,246,0.55)]"
@@ -327,7 +330,7 @@ export default function Contact() {
                   >
                     {status === "loading" ? (
                       <>
-                        <Loader2 size={16} className="animate-spin" />
+                        <Loader2 size={18} className="animate-spin" />
                         Enviando...
                       </>
                     ) : (
@@ -339,7 +342,7 @@ export default function Contact() {
                   </button>
 
                   {/* Divider */}
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-4 my-2">
                     <div className="flex-1 h-px bg-white/[0.06]" />
                     <span className="text-zinc-600 text-xs">o contacta directo</span>
                     <div className="flex-1 h-px bg-white/[0.06]" />
@@ -350,13 +353,13 @@ export default function Contact() {
                     href={waUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center gap-2.5 py-3.5 rounded-xl text-sm font-semibold text-white bg-emerald-600/80 hover:bg-emerald-500 border border-emerald-500/30 hover:border-emerald-400/50 transition-all duration-200 shadow-[0_0_16px_rgba(16,185,129,0.15)] hover:shadow-[0_0_28px_rgba(16,185,129,0.3)]"
+                    className="w-full flex items-center justify-center gap-2.5 py-3 rounded-xl text-base font-semibold text-white bg-emerald-600/80 hover:bg-emerald-500 border border-emerald-500/30 hover:border-emerald-400/50 transition-all duration-200 shadow-[0_0_16px_rgba(16,185,129,0.15)] hover:shadow-[0_0_28px_rgba(16,185,129,0.3)]"
                   >
                     <WhatsAppIcon size={18} />
                     Escribir por WhatsApp
                   </a>
 
-                  <p className="text-center text-zinc-700 text-xs">
+                  <p className="text-center text-zinc-700 text-xs mt-2">
                     Sin spam · Solo te contactaremos para responder tu consulta.
                   </p>
                 </motion.form>

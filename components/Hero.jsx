@@ -24,10 +24,10 @@ const stats = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 md:px-10 overflow-hidden pt-20">
+    <section className="relative overflow-hidden py-20 md:py-28">
       {/* Background glows */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-violet-600/10 blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-1/4 w-[350px] h-[350px] rounded-full bg-indigo-700/8 blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-violet-600/10 blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-[350px] h-[350px] rounded-full bg-indigo-700/8 blur-[100px] pointer-events-none" />
 
       {/* Grid pattern */}
       <div

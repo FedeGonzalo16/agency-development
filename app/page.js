@@ -29,8 +29,8 @@ const sections = [
   { id: "hero",         Component: Hero,         bg: "default" },
   { id: "services",     Component: Services,     bg: "raised"  },
   { id: "process",      Component: Process,      bg: "default" },
-  { id: "testimonials", Component: Testimonials, bg: "raised"  },
-  { id: "pricing",      Component: Pricing,      bg: "default" },
+  { id: "testimonials", Component: Testimonials, bg: "default" },
+  { id: "pricing",      Component: Pricing,      bg: "raised"  },
   { id: "cta",          Component: CTA,          bg: "raised"  },
   { id: "contact",      Component: Contact,      bg: "default" },
   { id: "footer",       Component: Footer,       bg: "raised"  },
@@ -41,22 +41,21 @@ export default function Home() {
     <main className="min-h-screen text-white overflow-x-hidden bg-[#050505]">
       <Navbar />
 
-      {sections.map(({ id, Component, bg }) => (
-        <motion.section
-          key={id}
-          {...fadeInUp}
-          className={cn(
-            /* ── physical gap: space OUTSIDE each component's own py ── */
-            "py-8 md:py-14",
-            /* ── visual separator ── */
-            "border-b border-white/[0.05]",
-            /* ── subtle background alternation ── */
-            bg === "raised" ? "bg-[#070709]" : "bg-[#050505]"
-          )}
-        >
-          <Component />
-        </motion.section>
-      ))}
+      <div className="container">
+        {sections.map(({ id, Component, bg }) => (
+          <motion.section
+            id={id}
+            key={id}
+            {...fadeInUp}
+            className={cn(
+              "py-16 md:py-24",
+              "border-b border-white/[0.04]",
+            )}
+          >
+            <Component />
+          </motion.section>
+        ))}
+      </div>
     </main>
   );
 }

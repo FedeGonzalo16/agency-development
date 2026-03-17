@@ -36,10 +36,9 @@ export default function Process() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section id="proceso" className="relative py-16 md:py-24 px-6 md:px-10">
+    <section id="proceso" className="relative">
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-violet-600/6 blur-[120px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
           ref={ref}
@@ -65,14 +64,14 @@ export default function Process() {
               en 4 pasos
             </span>
           </h2>
-          <p className="text-zinc-400 text-lg max-w-xl mx-auto leading-relaxed">
+          <p className="text-zinc-400 text-lg max-w-xl mx-auto leading-relaxed text-center">
             Un método probado que minimiza riesgos y maximiza resultados desde
             el día uno.
           </p>
         </motion.div>
 
         {/* Steps */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, i) => {
             const Icon = step.icon;
             return (
@@ -97,7 +96,7 @@ export default function Process() {
                   />
                 </div>
 
-                <h3 className="text-white font-semibold text-base mb-3 leading-snug">
+                <h3 className="text-white font-semibold text-xl mb-3 leading-snug">
                   {step.title}
                 </h3>
                 <p className="text-zinc-400 text-sm leading-[1.75]">

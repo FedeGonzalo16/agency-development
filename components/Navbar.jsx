@@ -34,52 +34,54 @@ export default function Navbar() {
           : "bg-transparent"
       )}
     >
-      <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center shadow-[0_0_16px_rgba(139,92,246,0.5)] group-hover:shadow-[0_0_24px_rgba(139,92,246,0.7)] transition-shadow">
-            <Zap size={16} className="text-white" fill="white" />
-          </div>
-          <span className="font-bold text-lg tracking-tight text-white">
-            Auto<span className="text-violet-400">Flow</span>
-          </span>
-        </a>
-
-        {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="text-sm text-zinc-400 hover:text-white transition-colors duration-200 relative group"
-              >
-                {link.label}
-                <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-violet-500 group-hover:w-full transition-all duration-300" />
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        {/* CTA */}
-        <div className="hidden md:flex items-center gap-4">
-          <a
-            href="#contacto"
-            className="relative inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold text-white bg-violet-600 hover:bg-violet-500 transition-all duration-200 shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:shadow-[0_0_28px_rgba(139,92,246,0.6)]"
-          >
-            Contacto
-            <span className="absolute inset-0 rounded-full ring-1 ring-violet-400/30" />
+      <div className="max-w-7xl mx-auto px-6">
+        <nav className="h-16 flex items-center justify-between gap-6">
+          {/* Logo */}
+          <a href="#" className="flex items-center gap-2 group">
+            <div className="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center shadow-[0_0_16px_rgba(139,92,246,0.5)] group-hover:shadow-[0_0_24px_rgba(139,92,246,0.7)] transition-shadow">
+              <Zap size={16} className="text-white" fill="white" />
+            </div>
+            <span className="font-bold text-lg tracking-tight text-white">
+              Auto<span className="text-violet-400">Flow</span>
+            </span>
           </a>
-        </div>
 
-        {/* Mobile toggle */}
-        <button
-          className="md:hidden text-zinc-400 hover:text-white transition-colors"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
-      </nav>
+          {/* Desktop links */}
+          <ul className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="text-sm text-zinc-400 hover:text-white transition-colors duration-200 relative group"
+                >
+                  {link.label}
+                  <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-violet-500 group-hover:w-full transition-all duration-300" />
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          {/* CTA */}
+          <div className="hidden md:flex items-center gap-4">
+            <a
+              href="#contacto"
+              className="relative inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold text-white bg-violet-600 hover:bg-violet-500 transition-all duration-200 shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:shadow-[0_0_28px_rgba(139,92,246,0.6)]"
+            >
+              Contacto
+              <span className="absolute inset-0 rounded-full ring-1 ring-violet-400/30" />
+            </a>
+          </div>
+
+          {/* Mobile toggle */}
+          <button
+            className="md:hidden text-zinc-400 hover:text-white transition-colors"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </nav>
+      </div>
 
       {/* Mobile menu */}
       <AnimatePresence>

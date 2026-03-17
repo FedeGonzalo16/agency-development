@@ -64,10 +64,9 @@ export default function Pricing() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section id="precios" className="relative py-16 md:py-24 px-6 md:px-10">
+    <section id="precios" className="relative">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-violet-600/8 blur-[120px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
           ref={ref}
@@ -82,13 +81,13 @@ export default function Pricing() {
           <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6">
             Inversión que se paga sola
           </h2>
-          <p className="text-zinc-400 text-lg max-w-xl mx-auto leading-relaxed">
+          <p className="text-zinc-400 text-lg max-w-xl mx-auto leading-relaxed text-center">
             Planes transparentes, sin contratos largos. Cancela cuando quieras.
           </p>
         </motion.div>
 
         {/* Cards — no transforms, visual emphasis via bg gradient + glow */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
           {plans.map((plan, i) => (
             <motion.div
               key={plan.name}
@@ -114,7 +113,7 @@ export default function Pricing() {
               <div className="mb-6">
                 <h3
                   className={cn(
-                    "font-bold text-xl mb-2",
+                    "font-bold text-2xl mb-2",
                     plan.highlighted ? "text-violet-200" : "text-white"
                   )}
                 >
@@ -160,7 +159,7 @@ export default function Pricing() {
               <a
                 href="#contacto"
                 className={cn(
-                  "mt-auto block w-full text-center py-3.5 rounded-xl text-sm font-semibold transition-all duration-200",
+                  "mt-auto block w-full text-center py-3.5 rounded-xl text-base font-semibold transition-all duration-200",
                   plan.highlighted
                     ? "bg-violet-600 hover:bg-violet-500 text-white shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:shadow-[0_0_32px_rgba(139,92,246,0.6)]"
                     : "border border-white/10 hover:border-violet-500/30 text-zinc-300 hover:text-white bg-white/[0.04] hover:bg-white/[0.07]"

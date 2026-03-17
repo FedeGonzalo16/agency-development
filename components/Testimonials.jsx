@@ -36,10 +36,9 @@ export default function Testimonials() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section id="resultados" className="relative py-16 md:py-24 px-6 md:px-10">
+    <section id="resultados" className="relative">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/20 to-transparent" />
 
-      <div className="max-w-6xl mx-auto">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 24 }}
@@ -53,7 +52,7 @@ export default function Testimonials() {
           <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6">
             Lo que dicen nuestros clientes
           </h2>
-          <p className="text-zinc-400 text-lg max-w-xl mx-auto leading-relaxed">
+          <p className="text-zinc-400 text-lg max-w-xl mx-auto leading-relaxed text-center">
             Empresas reales con resultados reales.
           </p>
         </motion.div>
@@ -79,17 +78,17 @@ export default function Testimonials() {
                 ))}
               </div>
 
-              <p className="text-zinc-300 text-sm leading-relaxed mb-6">
+              <p className="text-zinc-300 text-lg leading-relaxed mb-6">
                 &quot;{t.content}&quot;
               </p>
 
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-violet-600/30 border border-violet-500/30 flex items-center justify-center text-violet-300 font-bold text-sm">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-violet-600/30 border border-violet-500/30 flex items-center justify-center text-violet-300 font-bold text-lg">
                   {t.avatar}
                 </div>
                 <div>
-                  <div className="text-white font-semibold text-sm">{t.name}</div>
-                  <div className="text-zinc-500 text-xs">{t.role}</div>
+                  <div className="text-white font-semibold text-base">{t.name}</div>
+                  <div className="text-zinc-500 text-sm">{t.role}</div>
                 </div>
               </div>
             </motion.div>
